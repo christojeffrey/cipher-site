@@ -12,7 +12,7 @@ have I tried other free hosting platform? no.
 
 - `/ror` to run locally
 - `/vercel` to deploy
-- `/functions` to hold the controllers used by both the ror and vercel
+- `/vercel/functions` to hold the controllers used by both the ror and vercel (it was only `/functions` before, but I had to move it to `/vercel/functions` to make it work with vercel serverless)
 
 # to run
 
