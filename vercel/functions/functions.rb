@@ -12,11 +12,15 @@ end
 def result_outputer(result_text, isBase64)
   if isBase64
     # encode the result_text to base64
-    result_text = Base64.encode64(result_text)
+    result_text_base64 = Base64.encode64(result_text)
+    return {
+    result_text: result_text,
+    result_text_base64: result_text_base64
+    }.to_json
   else
-    result_text = result_text
+    return {
+      result_text: result_text
+    }.to_json
   end
-  return {
-    result_text: result_text
-  }.to_json
+
 end

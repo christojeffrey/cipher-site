@@ -1,6 +1,7 @@
 require_relative './../../../vercel/functions/functions'
 
 require_relative './../../../vercel/functions/a-vigenere-standard-cipher'
+require_relative './../../../vercel/functions/b-vigenere-autokey-cipher'
 
 class ApplicationController < ActionController::API
 
@@ -29,6 +30,12 @@ class ApplicationController < ActionController::API
     body = request.body.read
     
     render json: vigenere_standard_cipher_controller(body)
+  end
+  def vigenere_autokey_cipher
+    # get body
+    body = request.body.read
+    
+    render json: vigenere_autokey_cipher_controller(body)
   end
 
 end
