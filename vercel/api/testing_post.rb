@@ -6,7 +6,7 @@ Handler = Proc.new do |request, response|
     response.status = 200
     response['Content-Type'] = 'application/json'
     # get body
-    body = request.body.read
+    body = request.body
     body = JSON.parse(body)
     data = body["data"]
 
