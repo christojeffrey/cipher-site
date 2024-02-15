@@ -1,4 +1,4 @@
-require_relative './../../../functions/functions'
+require_relative './../../../vercel/functions/functions'
 
 class ApplicationController < ActionController::API
   def testing
