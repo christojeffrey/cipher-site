@@ -7,5 +7,5 @@ Handler = Proc.new do |request, response|
     # get body
     body = request.body
 
-    vigenere_standard_cipher_controller(body)
+    response.body = vigenere_standard_cipher_controller(body)
   end

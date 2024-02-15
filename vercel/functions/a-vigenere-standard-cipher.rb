@@ -17,7 +17,7 @@ def vigenere_standard_cipher_controller(body)
     # main action
     result_text = vigenere_standard_cipher_main(mode, text, key)
 
-    render json: result_outputer(result_text, isBase64)
+    return result_outputer(result_text, isBase64)
 end
 
 def vigenere_standard_cipher_main(mode, text, key)
