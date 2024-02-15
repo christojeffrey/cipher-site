@@ -1,5 +1,5 @@
 
-require_relative  './functions/functions'
+require_relative  './../functions/functions'
 
 Handler = Proc.new do |request, response|
     name = request.query['name'] || 'World'
