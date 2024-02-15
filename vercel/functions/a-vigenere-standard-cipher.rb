@@ -1,3 +1,4 @@
+require_relative "./functions"
 
 def vigenere_standard_cipher_controller(body)
     # parse body

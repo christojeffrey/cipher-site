@@ -1,5 +1,4 @@
- 
-require_relative  './../../functions/a-vigenere-standard-cipher'
+ require_relative  './../../functions/a-vigenere-standard-cipher'
 
 Handler = Proc.new do |request, response|
  
@@ -7,6 +6,6 @@ Handler = Proc.new do |request, response|
     response['Content-Type'] = 'application/json'
     # get body
     body = request.body
-    
+
     vigenere_standard_cipher_controller(body)
   end
