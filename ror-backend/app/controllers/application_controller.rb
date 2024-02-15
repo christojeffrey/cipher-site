@@ -1,2 +1,8 @@
 class ApplicationController < ActionController::API
-end
+    def vehicles
+      render json: { name: 'Tesla Model 3' }
+    end
+    def bob
+      render json: { name: 'bob Model 3' }
+    end
+  end
