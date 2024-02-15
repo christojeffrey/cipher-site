@@ -29,3 +29,9 @@ to run locally, run `rails s` in the ror directolry (stands for ruby on rails)
 3. do the function inside `functions` folder.
 
 **you must do all 3 to add an endpoint.**
+
+---
+
+# notes
+
+1. you might want to use `rbenv` for managing ruby versions. vercel uses ruby `3.2.0`. at the time of writing, the latest version is `3.3.0`

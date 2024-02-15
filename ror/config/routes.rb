@@ -11,7 +11,6 @@ end
 
 
 Rails.application.routes.draw do
-  get 'api/vehicles', to: 'application#vehicles'
-  get 'api/bob1', to: 'application#bob_controller'
+  get 'api/testing', to: 'application#testing'
   get 'api/hello', to: 'application#hello_controller'
 end

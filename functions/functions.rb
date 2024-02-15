@@ -1,5 +1,5 @@
 # every functions in this file will return json
 
-def hello(params)
-  return "Hello, #{params['name'] || 'world'}!".to_json
+def hello(name)
+  return "Hello, #{name || 'world'}!".to_json
 end
