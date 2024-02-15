@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
     def vehicles
+        # get query params
       render json: { name: 'Tesla Model 3' }
     end
     def bob
