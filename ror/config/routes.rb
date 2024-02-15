@@ -11,8 +11,11 @@ end
 
 
 Rails.application.routes.draw do
+  # examples
   get 'api/testing', to: 'application#testing'
-  get 'api/hello', to: 'application#hello_controller'
-  post 'api/testing-post', to: 'application#testing_post_controller'
-  post 'api/cipher/vigenere-standard', to: 'application#vigenere_standard_cipher_controller'
+  get 'api/hello', to: 'application#hello'
+  post 'api/testing-post', to: 'application#testing_post'
+
+  # ciphers
+  post 'api/cipher/vigenere-standard', to: 'application#vigenere_standard_cipher'
 end
