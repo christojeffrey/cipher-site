@@ -9,4 +9,13 @@ class ApplicationController < ActionController::API
       render json: hello("world")
   end
 
+  def testing_post_controller
+    # get body
+    body = request.body.read
+    body = JSON.parse(body)
+    data = body["data"]
+
+    render json: testing_post(data)
+  end
+
 end

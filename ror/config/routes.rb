@@ -13,4 +13,5 @@ end
 Rails.application.routes.draw do
   get 'api/testing', to: 'application#testing'
   get 'api/hello', to: 'application#hello_controller'
+  post 'api/testing_post', to: 'application#testing_post_controller'
 end
