@@ -10,7 +10,7 @@ def affine_cipher_controller(body)
   is_base64 = body["isBase64"] || false
 
   # handle error
-  if text.nil? || key.nil? || mode.nil?
+  if text.nil? || key_m.nil? || key_b.nil? || mode.nil?
       response.status = 400
       return render json: { error: "text, keyM, keyB, and mode are required" }
   end
