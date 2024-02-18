@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
+import { defineConfig } from "vite";
+import solidPlugin from "vite-plugin-solid";
 // import devtools from 'solid-devtools/vite';
 
 export default defineConfig({
@@ -15,6 +15,12 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    target: 'esnext',
+    target: "esnext",
+  },
+  resolve: {
+    alias: {
+      $components: "/src/components",
+      $globalState: "/src/global-state",
+    },
   },
 });

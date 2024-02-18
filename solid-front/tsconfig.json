@@ -11,5 +11,12 @@
     "types": ["vite/client"],
     "noEmit": true,
     "isolatedModules": true,
-  },
+    // absolute import
+    "baseUrl": "./",
+    "paths": {
+      "$components/*": ["src/components/*"],
+      "$components": ["src/components/index.ts"],
+      "$globalState": ["src/global-state.ts"]
+    }
+  }
 }
