@@ -6,6 +6,8 @@ require_relative './../../../vercel/functions/d-playfair-cipher'
 require_relative './../../../vercel/functions/f-hill-cipher'
 
 
+require_relative './../../../vercel/functions/e-affine-cipher'
+
 class ApplicationController < ActionController::API
 
   # EXAMPLES
@@ -41,6 +43,14 @@ class ApplicationController < ActionController::API
     render json: vigenere_autokey_cipher_controller(body)
   end
 
+
+  def affine_cipher
+    # get body
+    body = request.body.read
+
+    render json: affine_cipher_controller(body)
+  end
+  
   def hill_cipher
     # get body
     body = request.body.read
