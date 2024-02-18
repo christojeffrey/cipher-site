@@ -13,14 +13,14 @@ def hill_cipher_controller(body)
   # handle error
   if text.nil? || key.nil? || mode.nil?
     response.status = 400
-    return render json: { error: "text and key and mode are required" }
+    return { error: "text and key and mode are required" }
   end
 
   key = Matrix.rows(key)
 
   if key.square?
     response.status = 400
-    return render json: { error: "key must be a matrix" }
+    return { error: "key must be a matrix" }
   end
 
   if key.singular?
