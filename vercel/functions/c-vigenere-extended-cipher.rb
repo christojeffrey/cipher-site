@@ -47,10 +47,10 @@ def vigenere_extended_cipher_decrypt(ciphertext, key)
 
         # handle modulo for ascii characters
         if new_char_code < 0
-            new_char_code += 128
+            new_char_code += 256
         end
 
-        new_char_code = new_char_code % 128
+        new_char_code = new_char_code % 256
 
         # convert the new character code to a character
         new_char = new_char_code.chr
@@ -82,7 +82,7 @@ def vigenere_extended_cipher_encrypt(plaintext, key)
         new_char_code = plaintext_char_code + key_char_code
 
         # modulo the new character code 
-        new_char_code = new_char_code % 128
+        new_char_code = new_char_code % 256
         # convert the new character code to a character
         new_char = new_char_code.chr
 
