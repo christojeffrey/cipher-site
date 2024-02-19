@@ -30,12 +30,6 @@ def playfair_cipher_main(mode, text, key)
   end
 end
 
-def playfair_cipher_decrypt(ciphertext, key)
-  key = transform_key(key)
-
-  return plaintext
-end
-
 def playfair_cipher_encrypt(plaintext, key)
   key = transform_key(key)
 
