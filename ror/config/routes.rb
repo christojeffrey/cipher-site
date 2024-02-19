@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # ciphers
   post 'api/cipher/vigenere-standard', to: 'application#vigenere_standard_cipher'
   post 'api/cipher/vigenere-autokey', to: 'application#vigenere_autokey_cipher'
+  post 'api/cipher/vigenere-extended', to: 'application#vigenere_extended_cipher'
   post 'api/cipher/affine', to: 'application#affine_cipher'
   post 'api/cipher/hill', to: 'application#hill_cipher'
   post 'api/cipher/playfair', to: 'application#playfair_cipher'
