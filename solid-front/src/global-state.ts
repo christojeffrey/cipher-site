@@ -30,7 +30,8 @@ const doEncryptDecrypt = async () => {
   return (
     await fetch(`${import.meta.env.VITE_BACKEND_URL}/cipher/${config().cipher}`, {
       method: "POST",
-      body: JSON.stringify({ text: input(), ...config() }),
+      // turn \\u to \u
+      body: JSON.stringify({ text: input(), ...config() }).replace(/\\\\u/g, "\\u"),
     })
   ).json();
 };

@@ -13,7 +13,21 @@ export const OutputBox: Component = (props: OutputBoxProps) => {
       <div>
         <span>{output.loading && "loading..."}</span>
         <span>{output.error && "error: " + output.error}</span>
-        <span>{JSON.stringify(output())}</span>
+        <span class="break-words text-ellipsis h-screen">{output()?.result_text}</span>
+        {/* save as file */}
+        <button
+          class="border-2"
+          onClick={() => {
+            const blob = new Blob([output().result_text], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "output.txt";
+            a.click();
+          }}
+        >
+          Save as file
+        </button>
       </div>
     </div>
   );

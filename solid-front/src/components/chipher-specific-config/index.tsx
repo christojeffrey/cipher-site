@@ -2,6 +2,7 @@ import { configSignal } from "$globalState";
 import { Component, createEffect, createSignal } from "solid-js";
 import VigenereStandardConfig from "./a-vigenere-standard";
 import VigenereAutokeyConfig from "./b-vigenere-autokey";
+import { VigenereExtendedConfig } from "./c-vigenere-extended";
 
 const configList = [
   {
@@ -11,6 +12,10 @@ const configList = [
   {
     name: "vigenere-autokey",
     component: VigenereAutokeyConfig,
+  },
+  {
+    name: "vigenere-extended",
+    component: VigenereExtendedConfig,
   },
 ];
 export const CipherSpecificConfig: Component = () => {
