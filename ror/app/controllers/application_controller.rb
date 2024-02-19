@@ -5,8 +5,7 @@ require_relative './../../../vercel/functions/b-vigenere-autokey-cipher'
 require_relative './../../../vercel/functions/d-playfair-cipher'
 require_relative './../../../vercel/functions/e-affine-cipher'
 require_relative './../../../vercel/functions/f-hill-cipher'
-
-
+require_relative './../../../vercel/functions/bonus-enigma-cipher'
 
 class ApplicationController < ActionController::API
 
@@ -37,7 +36,7 @@ class ApplicationController < ActionController::API
     render json: vigenere_standard_cipher_controller(body)
   end
 
-  
+
   def vigenere_autokey_cipher
     # get body
     body = request.body.read
@@ -52,19 +51,26 @@ class ApplicationController < ActionController::API
 
     render json: affine_cipher_controller(body)
   end
-  
+
   def hill_cipher
     # get body
     body = request.body.read
 
     render json: hill_cipher_controller(body)
   end
-  
+
   def playfair_cipher
     # get body
     body = request.body.read
 
     render json: playfair_cipher_controller(body)
+  end
+
+  def enigma_cipher
+    # get body
+    body = request.body.read
+
+    render json: enigma_cipher_controller(body)
   end
 
 end
