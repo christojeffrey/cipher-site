@@ -16,6 +16,8 @@
     "paths": {
       "$components/*": ["src/components/*"],
       "$components": ["src/components/index.ts"],
+      "$ui/*": ["src/ui/*"],
+      "$ui": ["src/ui/index.ts"],
       "$globalState": ["src/global-state.ts"]
     }
   }

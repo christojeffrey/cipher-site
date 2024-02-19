@@ -21,6 +21,7 @@ export default defineConfig({
     alias: {
       $components: "/src/components",
       $globalState: "/src/global-state",
+      $ui: "/src/ui",
     },
   },
 });

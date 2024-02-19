@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import { setDoFetch, setPersistentConfig } from "$globalState";
 import { CipherSpecificConfig } from "./chipher-specific-config";
+import { Heading } from "$ui/heading";
 
 const handleEncrypt = () => {
   setPersistentConfig({ mode: "encrypt" });
@@ -20,6 +21,7 @@ export const ConfigBox: Component = () => {
   return (
     <div class="md:h-full flex-grow rounded-2xl bg-white p-3">
       <div class="flex flex-col">
+        <Heading>Configuration</Heading>
         {/* cipher */}
         <select
           class="border-2"

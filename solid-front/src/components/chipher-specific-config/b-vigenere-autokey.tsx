@@ -1,20 +1,20 @@
 import { setPersistentConfig } from "$globalState";
+import { TextField, Heading } from "$ui";
 import { Component } from "solid-js";
 
 export const VigenereAutokeyConfig: Component = () => {
   return (
-    <>
-      vigenere autokey
+    <div class="my-2">
+      <Heading>Vigenere Autokey</Heading>
       {/* key */}
-      <input
-        class="border-2"
+      <TextField
         onChange={(e) => {
           setPersistentConfig({ key: e.target.value });
         }}
       >
         key
-      </input>
-    </>
+      </TextField>
+    </div>
   );
 };
 
