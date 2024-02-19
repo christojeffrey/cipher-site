@@ -12,12 +12,12 @@ def affine_cipher_controller(body)
   # handle error
   if text.nil? || key_m.nil? || key_b.nil? || mode.nil?
       response.status = 400
-      return render json: { error: "text, keyM, keyB, and mode are required" }
+      return { error: "text, keyM, keyB, and mode are required" }
   end
 
   if !is_coprime?(key_m, 26)
     response.status = 400
-    return render json: { error: "keyM must be coprime with 26" }
+    return { error: "keyM must be coprime with 26" }
   end
 
   # main action

@@ -3,10 +3,10 @@ require_relative './../../../vercel/functions/functions'
 require_relative './../../../vercel/functions/a-vigenere-standard-cipher'
 require_relative './../../../vercel/functions/b-vigenere-autokey-cipher'
 require_relative './../../../vercel/functions/d-playfair-cipher'
+require_relative './../../../vercel/functions/e-affine-cipher'
 require_relative './../../../vercel/functions/f-hill-cipher'
 
 
-require_relative './../../../vercel/functions/e-affine-cipher'
 
 class ApplicationController < ActionController::API
 
@@ -36,6 +36,8 @@ class ApplicationController < ActionController::API
 
     render json: vigenere_standard_cipher_controller(body)
   end
+
+  
   def vigenere_autokey_cipher
     # get body
     body = request.body.read
