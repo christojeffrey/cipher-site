@@ -1,5 +1,4 @@
 import { createSignal, createResource } from "solid-js";
-const BACKEND_URL = "http://localhost:8000/api";
 
 // input state
 type InputType = string;
@@ -29,7 +28,7 @@ const doEncryptDecrypt = async () => {
   const [config] = configSignal;
 
   return (
-    await fetch(`${BACKEND_URL}/cipher/${config().cipher}`, {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/cipher/${config().cipher}`, {
       method: "POST",
       body: JSON.stringify({ text: input(), ...config() }),
     })
