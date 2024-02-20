@@ -16,16 +16,21 @@ def hill_cipher_controller(body)
     return { error: "text and key and mode are required" }
   end
 
-  key = Matrix.rows(key)
+  key_array = []
+  key.chars.each_slice(matrix_size) { |slice|
+    slice = slice.map { |x| x.ord - "a".ord }
+    key_array << slice
+  }
+  key = Matrix.rows(key_array)
 
   if key.square?
     response.status = 400
-    return { error: "key must be a matrix" }
+    return { error: "key length is not appropriate" }
   end
 
   if key.singular?
     response.status = 400
-    return render json: { error: "key must be non-singular matrix" }
+    return render json: { error: "converted key must be non-singular matrix" }
   end
 
   # main action
@@ -36,7 +41,7 @@ end
 
 def hill_cipher_main(mode, text, key, matrix_size)
   text = text.gsub(/[^a-zA-Z]/, "").downcase
-  key = Matrix.rows(key)
+  # key = Matrix.rows(key)
 
   if mode == "encrypt"
     return hill_cipher_encrypt(text, key, matrix_size)
