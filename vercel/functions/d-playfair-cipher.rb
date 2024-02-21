@@ -11,7 +11,7 @@ def playfair_cipher_controller(body, response)
   # handle error
   if text.nil? || key.nil? || mode.nil?
     response.status = 400
-    return { error: "text and key and mode are required" }
+    return { error: "text and key and mode are required" }.to_json
   end
 
   # main action

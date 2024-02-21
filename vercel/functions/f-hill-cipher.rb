@@ -15,12 +15,12 @@ def hill_cipher_controller(body, response)
   # handle error
   if text.nil? || key.nil? || mode.nil?
     response.status = 400
-    return { error: "text and key and mode are required" }
+    return { error: "text and key and mode are required" }.to_json
   end
 
   if key.length != matrix_size * matrix_size
     response.status = 400
-    return { error: "key length is not appropriate" }
+    return { error: "key length is not appropriate" }.to_json
   end
 
   key_array = []
@@ -32,7 +32,7 @@ def hill_cipher_controller(body, response)
 
   if !is_invertible?(key)   # Based on modulo 26
     response.status = 400
-    return { error: "key is unavailable, please change the key (key is not invertible mod 26)" }
+    return { error: "key is unavailable, please change the key (key is not invertible mod 26)" }.to_json
   end
 
   # main action

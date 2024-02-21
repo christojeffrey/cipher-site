@@ -12,12 +12,12 @@ def enigma_cipher_controller(body, response)
   # handle error
   if text.nil? || key.nil? || mode.nil?
     response.status = 400
-    return { error: "text and key and mode are required" }
+    return { error: "text and key and mode are required" }.to_json
   end
 
   if key.length != 3 || key.match(/[^a-zA-Z]/)
     response.status = 400
-    return { error: "key must be exactly 3 letters" }
+    return { error: "key must be exactly 3 letters" }.to_json
   end
 
   # main action
