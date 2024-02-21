@@ -45,10 +45,8 @@ def vigenere_extended_cipher_decrypt(ciphertext, key)
     ciphertext.each_char do |char|
         # get the character code of the key character
         key_char_code = key[key_index].ord
-        # puts "key_char_code: #{key_char_code}"
         # get the character code of the ciphertext character
         ciphertext_char_code = char.ord
-        # puts "ciphertext_char_code: #{ciphertext_char_code}"
         # subtract the ciphertext character code from the key character code
         new_char_code = ciphertext_char_code - key_char_code
         
@@ -59,7 +57,6 @@ def vigenere_extended_cipher_decrypt(ciphertext, key)
         
         new_char_code = new_char_code % 256
 
-        # puts "new_char_code: #{new_char_code}"
 
         # convert the new character code to a character
         new_char = new_char_code.chr
@@ -85,17 +82,14 @@ def vigenere_extended_cipher_encrypt(plaintext, key)
     plaintext.each_char do |char|
         # get the character code of the key character
         key_char_code = key[key_index].ord
-        # puts "key_char_code: #{key_char_code}"
 
         # get the character code of the plaintext character
         plaintext_char_code = char.ord
-        # puts "plaintext_char_code: #{plaintext_char_code}"
         # add the two character codes together
         new_char_code = plaintext_char_code + key_char_code
 
         # modulo the new character code 
         new_char_code = new_char_code % 256
-        # puts "new_char_code: #{new_char_code}"
         # convert the new character code to a character
         new_char = new_char_code.chr
 
@@ -109,6 +103,5 @@ def vigenere_extended_cipher_encrypt(plaintext, key)
         end
     end
     # return the ciphertext
-    # puts "cipher length #{ciphertext.length}"
     return ciphertext
   end

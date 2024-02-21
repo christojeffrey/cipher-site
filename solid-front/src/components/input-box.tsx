@@ -53,17 +53,7 @@ export const InputBox: Component = () => {
                   console.log(e.target?.result);
                   // print as array of number
                   const regularArr = Array.from(new Uint8Array(e.target?.result as ArrayBuffer));
-                  // print max and min
-                  console.log(Math.max(...regularArr));
-                  console.log(Math.min(...regularArr));
 
-                  // const regularArr = [];
-                  // // // loop from 0 to 255
-                  // for (let i = 0; i < 13264; i++) {
-                  //   regularArr.push(i % 256);
-                  // }
-
-                  console.log(regularArr);
                   // stringify regularArr
                   const stringified = regularArr.map((v) => String.fromCharCode(v)).join("");
                   setInput(stringified);

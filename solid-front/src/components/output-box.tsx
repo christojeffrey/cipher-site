@@ -27,11 +27,7 @@ export const OutputBox: Component = (props: OutputBoxProps) => {
               const stringified = new TextDecoder().decode(buffer);
               // convert to array of uint8 char code
               const numberArr = stringified.split("").map((v) => v.charCodeAt(0));
-              console.log("numberArr");
-              console.log(numberArr);
               const uint8Arr = new Uint8Array(numberArr);
-              console.log("uint8Arr");
-              console.log(uint8Arr);
               return uint8Arr;
             };
             blobToUint8Array(blob).then((uint8Arr) => {
