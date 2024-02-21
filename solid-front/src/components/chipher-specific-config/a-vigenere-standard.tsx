@@ -12,9 +12,10 @@ export const VigenereStandardConfig: Component = () => {
           setPersistentConfig({ key: e.target.value });
         }}
       >
-        key
+        Key
       </TextField>
     </div>
   );
 };
+
 export default VigenereStandardConfig;

@@ -2,10 +2,11 @@ import { Component } from "solid-js";
 import { setPersistentConfig } from "$globalState";
 import { TextField, Heading } from "$ui";
 
-export const VigenereExtendedConfig: Component = () => {
+export const PlayfairConfig: Component = () => {
   return (
     <div class="my-2">
-      <Heading>Vigenere Extended</Heading>
+      <Heading>Playfair Cipher</Heading>
+      <p>(26-alphabet)</p>
       {/* key */}
       <TextField
         onChange={(e) => {
@@ -17,5 +18,4 @@ export const VigenereExtendedConfig: Component = () => {
     </div>
   );
 };
-
-export default VigenereExtendedConfig;
+export default PlayfairConfig;

@@ -24,17 +24,24 @@ export const ConfigBox: Component = () => {
         <Heading>Configuration</Heading>
         {/* cipher */}
         <select
-          class="border-2"
+          class="border-2 mt-2 mb-4"
           onChange={(e) => {
-            setPersistentConfig({
-              cipher: e.target.value,
-            });
+            setPersistentConfig(
+              {
+                cipher: e.target.value,
+              },
+              true
+            );
           }}
         >
-          <option value="vigenere-standard">vigenere standard</option>
-          <option value="vigenere-autokey">vigenere autokey</option>
-          <option value="vigenere-extended">vigenere extended</option>
-          <option value="super-encryption">super encryption</option>
+          <option value="vigenere-standard">Vigenere Standard</option>
+          <option value="vigenere-autokey">Vigenere Autokey</option>
+          <option value="vigenere-extended">Vigenere Extended</option>
+          <option value="playfair">Playfair Cipher</option>
+          <option value="affine">Affine Cipher</option>
+          <option value="hill">Hill Cipher</option>
+          <option value="super-encryption">Super Encryption</option>
+          <option value="enigma">Enigma Cipher</option>
         </select>
 
         {/* cipher specific config */}
@@ -49,10 +56,10 @@ export const ConfigBox: Component = () => {
         </div>
 
         {/* button */}
-        <button class="border-2" onClick={handleEncrypt}>
+        <button class="border-2 my-1 hover:shadow hover:bg-gray-50" onClick={handleEncrypt}>
           Encrypt
         </button>
-        <button class="border-2" onClick={handleDecrypt}>
+        <button class="border-2 my-1 hover:shadow hover:bg-gray-50" onClick={handleDecrypt}>
           Decrypt
         </button>
       </div>

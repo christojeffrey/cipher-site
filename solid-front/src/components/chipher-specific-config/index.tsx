@@ -2,7 +2,11 @@ import { configSignal } from "$globalState";
 import { Component, createEffect, createSignal } from "solid-js";
 import VigenereStandardConfig from "./a-vigenere-standard";
 import VigenereAutokeyConfig from "./b-vigenere-autokey";
-import { VigenereExtendedConfig } from "./c-vigenere-extended";
+import VigenereExtendedConfig from "./c-vigenere-extended";
+import PlayfairConfig from "./d-playfair";
+import AffineConfig from "./e-affine";
+import HillConfig from "./f-hill";
+import EnigmaConfig from "./bonus-enigma";
 import SuperEncryptionConfig from "./g-super-encryption";
 
 const configList = [
@@ -19,8 +23,24 @@ const configList = [
     component: VigenereExtendedConfig,
   },
   {
+    name: "playfair",
+    component: PlayfairConfig,
+  },
+  {
+    name: "affine",
+    component: AffineConfig,
+  },
+  {
+    name: "hill",
+    component: HillConfig,
+  },
+  {
     name: "super-encryption",
     component: SuperEncryptionConfig,
+  },
+  {
+    name: "enigma",
+    component: EnigmaConfig,
   },
 ];
 export const CipherSpecificConfig: Component = () => {

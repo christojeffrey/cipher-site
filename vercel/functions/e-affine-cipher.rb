@@ -5,8 +5,8 @@ def affine_cipher_controller(body)
   body = JSON.parse(body)
   mode = body["mode"]
   text = body["text"]
-  key_m = body["keyM"]
-  key_b = body["keyB"]
+  key_m = Integer(body["keyM"])
+  key_b = Integer(body["keyB"])
   is_base64 = body["isBase64"] || false
 
   # handle error
