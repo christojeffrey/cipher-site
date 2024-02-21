@@ -7,7 +7,7 @@ def hill_cipher_controller(body)
   mode = body["mode"]
   text = body["text"]
   key = body["key"]
-  matrix_size = body["matrixSize"] || 3
+  matrix_size = Integer(body["matrixSize"]) || 3
   is_base64 = body["isBase64"] || false
 
   # handle error
@@ -23,14 +23,14 @@ def hill_cipher_controller(body)
   }
   key = Matrix.rows(key_array)
 
-  if key.square?
+  if !key.square?
     response.status = 400
     return { error: "key length is not appropriate" }
   end
 
-  if key.singular?
+  if !is_invertible?(key)   # Based on modulo 26
     response.status = 400
-    return render json: { error: "converted key must be non-singular matrix" }
+    return { error: "key is unavailable, please change the key (key is not invertible mod 26)" }
   end
 
   # main action
@@ -59,10 +59,18 @@ def hill_cipher_decrypt(ciphertext, key, matrix_size)
     plaintext << (inverse_key * Matrix.column_vector(slice)).column(0).to_a.map { |x| (x % 26) + "a".ord }.pack("C*")
   end
 
+  # Remove padding
+  plaintext = plaintext.gsub(/j+$/, "")
+
   return plaintext
 end
 
 def hill_cipher_encrypt(plaintext, key, matrix_size)
+  # Pad with 'j'
+  if plaintext.length % matrix_size != 0
+    plaintext += "j" * (matrix_size - (plaintext.length % matrix_size))
+  end
+
   ciphertext = ""
   plaintext.chars.each_slice(matrix_size) do |slice|
     slice = slice.map { |x| x.ord - "a".ord }
@@ -83,4 +91,12 @@ def inverse_modulo(a, m)
     return i if (a * i) % m == 1
   end
   return 1
+end
+
+def is_coprime?(a, b)
+  return a.gcd(b) == 1
+end
+
+def is_invertible?(mx)
+  return is_coprime?(mx.det, 26)
 end

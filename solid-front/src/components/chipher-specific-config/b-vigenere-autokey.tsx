@@ -12,7 +12,7 @@ export const VigenereAutokeyConfig: Component = () => {
           setPersistentConfig({ key: e.target.value });
         }}
       >
-        key
+        Key
       </TextField>
     </div>
   );
