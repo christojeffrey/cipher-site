@@ -26,14 +26,12 @@ export function setPersistentConfig(newConfig: any) {
 const doEncryptDecrypt = async () => {
   const [input] = inputSignal;
   const [config] = configSignal;
+  let result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cipher/${config().cipher}`, {
+    method: "POST",
+    body: JSON.stringify({ text: input(), ...config() }),
+  });
 
-  return (
-    await fetch(`${import.meta.env.VITE_BACKEND_URL}/cipher/${config().cipher}`, {
-      method: "POST",
-      // turn \\u to \u
-      body: JSON.stringify({ text: input(), ...config() }),
-    })
-  ).json();
+  return result.json();
 };
 
 //   output
