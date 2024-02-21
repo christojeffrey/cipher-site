@@ -8,15 +8,17 @@ type OutputBoxProps = {
 export const OutputBox: Component = (props: OutputBoxProps) => {
   // get input
   return (
-    <div class={`${props.class} w-1/3 bg-white rounded-2xl p-3`}>
-      <div>
+    <div class={`${props.class} min-h-[25vh] md:h-full md:w-1/3 rounded-2xl bg-white p-3`}>
+      <div class="flex flex-col">
         <span>{output.loading && "loading..."}</span>
         <span>{output.error && "error: " + output.error}</span>
-        <div class="h-[50vh] border-2 break-words overflow-clip">file: {output()?.result_text}</div>
+        <div>file:</div>
+        <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden"> {output()?.result_text}</div>
 
         {/* save as file */}
         <button
           class="border-2"
+          disabled={output.loading || output.error || !output()?.result_text}
           onClick={() => {
             const blob = new Blob([output().result_text], { type: "octet/stream" });
 
