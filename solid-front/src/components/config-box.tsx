@@ -47,12 +47,12 @@ export const ConfigBox: Component = () => {
         {/* cipher specific config */}
         <CipherSpecificConfig />
         {/* show base64 */}
-        <div>
+        <div class="mb-2">
           {/* checkbox */}
-          <input type="checkbox" onChange={(e) => setPersistentConfig({ isBase64: e.target.checked })} name="base64" />
-          <label for="base64" class="cursor-pointer ml-2">
-            base64
+          <label for="base64" class="cursor-pointer mr-4">
+            Show base64 on output
           </label>
+          <input type="checkbox" onChange={(e) => setPersistentConfig({ isBase64: e.target.checked })} name="base64" />
         </div>
 
         {/* button */}
