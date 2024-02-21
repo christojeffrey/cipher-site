@@ -49,8 +49,7 @@ export const InputBox: Component = () => {
               const file = e.target.files?.[0];
               if (file) {
                 const reader = new FileReader();
-                reader.onloadend = (e) => {
-                  console.log(e.target?.result);
+                reader.onload = (e) => {
                   // print as array of number
                   const regularArr = Array.from(new Uint8Array(e.target?.result as ArrayBuffer));
 
