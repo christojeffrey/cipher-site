@@ -23,7 +23,7 @@ export const InputBox: Component = () => {
                   name="input-type"
                   onClick={() => {
                     setInputType(inputTypeValue);
-                    setInput("");
+                    setInput({content: ""});
                   }}
                   checked={inputType() === inputTypeValue}
                 />
@@ -37,7 +37,7 @@ export const InputBox: Component = () => {
         <Match when={inputType() === "text"}>
           <TextField
             onChange={(e) => {
-              setInput((e.target as HTMLInputElement).value);
+              setInput({content: (e.target as HTMLInputElement).value});
               
             }}
           >
@@ -58,7 +58,7 @@ export const InputBox: Component = () => {
 
                   // stringify regularArr
                   const stringified = regularArr.map((v) => String.fromCharCode(v)).join("");
-                  setInput(stringified);
+                  setInput({content: stringified, filename: file.name});
                 };
                 reader.readAsArrayBuffer(file);
               }

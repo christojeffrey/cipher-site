@@ -1,5 +1,5 @@
 import { ErrorBoundary, Match, Switch, createEffect, type Component } from "solid-js";
-import { output } from "$globalState";
+import { configSignal, inputSignal, output } from "$globalState";
 import { Heading } from "$ui/heading";
 
 type OutputBoxProps = {
@@ -11,7 +11,14 @@ export const OutputBox: Component = (props: OutputBoxProps) => {
 
 
   const onDownload = () => {
-    const blob = new Blob([output().result_text], { type: "octet/stream" });
+    const blob = new Blob([output()?.result_text], { type: "octet/stream" });
+    const [input] = inputSignal;
+    const [config] = configSignal;
+
+    var filename = input().filename ? `${config().mode}ed-${input().filename}` : "encrypted-file.txt";
+    if (filename.startsWith("decrypted-encrypted-")) {
+      filename = filename.replace("decrypted-encrypted-", "");
+    }
 
     // blob to binary
     const blobToUint8Array = async (blob: Blob) => {
@@ -27,7 +34,7 @@ export const OutputBox: Component = (props: OutputBoxProps) => {
       const url = URL.createObjectURL(new Blob([uint8Arr], { type: "octet/stream" }));
       const a = document.createElement("a");
       a.href = url;
-      a.download = "output.bin";
+      a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
     });
