@@ -26,9 +26,12 @@ export const ConfigBox: Component = () => {
         <select
           class="border-2 mt-2 mb-4"
           onChange={(e) => {
-            setPersistentConfig({
-              cipher: e.target.value,
-            });
+            setPersistentConfig(
+              {
+                cipher: e.target.value,
+              },
+              true
+            );
           }}
         >
           <option value="vigenere-standard">Vigenere Standard</option>
@@ -43,6 +46,14 @@ export const ConfigBox: Component = () => {
 
         {/* cipher specific config */}
         <CipherSpecificConfig />
+        {/* show base64 */}
+        <div>
+          {/* checkbox */}
+          <input type="checkbox" onChange={(e) => setPersistentConfig({ isBase64: e.target.checked })} name="base64" />
+          <label for="base64" class="cursor-pointer ml-2">
+            base64
+          </label>
+        </div>
 
         {/* button */}
         <button class="border-2 my-1 hover:shadow hover:bg-gray-50" onClick={handleEncrypt}>

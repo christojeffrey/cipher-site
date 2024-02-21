@@ -3,7 +3,7 @@ import { ConfigBox, InputBox, OutputBox } from "$components";
 
 const App: Component = () => {
   return (
-    <div class="h-screen flex flex-col p-3 gap-3">
+    <div class="md:h-screen flex flex-col p-3 gap-3">
       <AppHeader />
       <div class="border-2 flex flex-col md:flex-row md:justify-between p-3 gap-3 bg-gray-100 rounded-2xl flex-grow">
         {/* three section. left middle right. left for input, middle for configuration, right for output */}

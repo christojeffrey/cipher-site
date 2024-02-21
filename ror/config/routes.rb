@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   post 'api/cipher/hill', to: 'application#hill_cipher'
   post 'api/cipher/playfair', to: 'application#playfair_cipher'
   post 'api/cipher/enigma', to: 'application#enigma_cipher'
+  post 'api/cipher/super-encryption', to: 'application#super_encryption_cipher'
 end
