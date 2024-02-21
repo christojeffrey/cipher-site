@@ -48,7 +48,9 @@ class ApplicationController < ActionController::API
     # get body
     body = request.body.read
 
-    render json: vigenere_extended_cipher_controller(body)
+    res = vigenere_extended_cipher_controller(body)
+    
+    render json: res
   end
 
 

@@ -33,6 +33,7 @@ export const ConfigBox: Component = () => {
         >
           <option value="vigenere-standard">vigenere standard</option>
           <option value="vigenere-autokey">vigenere autokey</option>
+          <option value="vigenere-extended">vigenere extended</option>
         </select>
 
         {/* cipher specific config */}

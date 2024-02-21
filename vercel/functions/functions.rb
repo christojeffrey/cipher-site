@@ -14,12 +14,12 @@ def result_outputer(result_text, isBase64)
     # encode the result_text to base64
     result_text_base64 = Base64.encode64(result_text)
     return {
-    result_text: result_text,
+    result_text: result_text.force_encoding("ISO-8859-1").encode("UTF-8"),
     result_text_base64: result_text_base64
     }.to_json
   else
     return {
-      result_text: result_text
+      result_text: result_text.force_encoding("ISO-8859-1").encode("UTF-8")
     }.to_json
   end
 

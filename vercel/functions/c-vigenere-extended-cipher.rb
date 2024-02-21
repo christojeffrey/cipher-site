@@ -15,7 +15,12 @@ def vigenere_extended_cipher_controller(body)
     end
 
     # main action
+    puts "text length: #{text.length}"
+
     result_text = vigenere_extended_cipher_main(mode, text, key)
+
+    puts "result_length: #{result_text.length}"
+    
 
     return result_outputer(result_text, isBase64)
 end
@@ -44,13 +49,14 @@ def vigenere_extended_cipher_decrypt(ciphertext, key)
         ciphertext_char_code = char.ord
         # subtract the ciphertext character code from the key character code
         new_char_code = ciphertext_char_code - key_char_code
-
+        
         # handle modulo for ascii characters
         if new_char_code < 0
             new_char_code += 256
         end
-
+        
         new_char_code = new_char_code % 256
+
 
         # convert the new character code to a character
         new_char = new_char_code.chr
@@ -76,6 +82,7 @@ def vigenere_extended_cipher_encrypt(plaintext, key)
     plaintext.each_char do |char|
         # get the character code of the key character
         key_char_code = key[key_index].ord
+
         # get the character code of the plaintext character
         plaintext_char_code = char.ord
         # add the two character codes together
