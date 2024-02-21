@@ -26,9 +26,12 @@ export const ConfigBox: Component = () => {
         <select
           class="border-2 mt-2 mb-4"
           onChange={(e) => {
-            setPersistentConfig({
-              cipher: e.target.value,
-            });
+            setPersistentConfig(
+              {
+                cipher: e.target.value,
+              },
+              true
+            );
           }}
         >
           <option value="vigenere-standard">Vigenere Standard</option>
