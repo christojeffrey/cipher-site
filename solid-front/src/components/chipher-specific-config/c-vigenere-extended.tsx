@@ -1,6 +1,6 @@
+import { Component } from "solid-js";
 import { setPersistentConfig } from "$globalState";
 import { TextField, Heading } from "$ui";
-import { Component } from "solid-js";
 
 export const VigenereExtendedConfig: Component = () => {
   return (
