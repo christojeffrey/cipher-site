@@ -1,6 +1,6 @@
 require_relative "./functions"
 
-def playfair_cipher_controller(body)
+def playfair_cipher_controller(body, response)
   # parse body
   body = JSON.parse(body)
   mode = body["mode"]

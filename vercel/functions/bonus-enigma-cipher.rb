@@ -1,7 +1,7 @@
 require_relative "./functions"
 
 # Assume: 3-rotor enigma cipher for 26 letters
-def enigma_cipher_controller(body)
+def enigma_cipher_controller(body, response)
   # parse body
   body = JSON.parse(body)
   mode = body["mode"]

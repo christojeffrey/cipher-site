@@ -10,5 +10,5 @@ Handler = Proc.new do |request, response|
   # get body
   body = request.body
 
-  response.body = playfair_cipher_controller(body)
+  response.body = playfair_cipher_controller(body, response)
 end

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::API
     # get body
     body = request.body.read
 
-    render json: vigenere_standard_cipher_controller(body)
+    render json: vigenere_standard_cipher_controller(body, response)
   end
 
 
@@ -43,13 +43,13 @@ class ApplicationController < ActionController::API
     # get body
     body = request.body.read
 
-    render json: vigenere_autokey_cipher_controller(body)
+    render json: vigenere_autokey_cipher_controller(body, response)
   end
   def vigenere_extended_cipher
     # get body
     body = request.body.read
 
-    res = vigenere_extended_cipher_controller(body)
+    res = vigenere_extended_cipher_controller(body, response)
     
     render json: res
   end
@@ -59,34 +59,34 @@ class ApplicationController < ActionController::API
     # get body
     body = request.body.read
 
-    render json: affine_cipher_controller(body)
+    render json: affine_cipher_controller(body, response)
   end
 
   def hill_cipher
     # get body
     body = request.body.read
 
-    render json: hill_cipher_controller(body)
+    render json: hill_cipher_controller(body, response)
   end
 
   def playfair_cipher
     # get body
     body = request.body.read
 
-    render json: playfair_cipher_controller(body)
+    render json: playfair_cipher_controller(body, response)
   end
 
   def enigma_cipher
     # get body
     body = request.body.read
 
-    render json: enigma_cipher_controller(body)
+    render json: enigma_cipher_controller(body, response)
   end
   def super_encryption_cipher
     # get body
     body = request.body.read
 
-    render json: super_encryption_cipher_controller(body)
+    render json: super_encryption_cipher_controller(body, response)
   end
 
 end

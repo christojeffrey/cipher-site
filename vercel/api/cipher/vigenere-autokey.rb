@@ -10,5 +10,5 @@ Handler = Proc.new do |request, response|
     # get body
     body = request.body
 
-    response.body = vigenere_autokey_cipher_controller(body)
+    response.body = vigenere_autokey_cipher_controller(body, response)
   end

@@ -10,5 +10,5 @@ Handler = Proc.new do |request, response|
     # get body
     body = request.body
 
-    response.body = super_encryption_cipher_controller(body)
+    response.body = super_encryption_cipher_controller(body, response)
   end

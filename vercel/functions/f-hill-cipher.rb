@@ -1,7 +1,7 @@
 require_relative "./functions"
 require "matrix"
 
-def hill_cipher_controller(body)
+def hill_cipher_controller(body, response)
   # parse body
   body = JSON.parse(body)
   mode = body["mode"]

@@ -1,6 +1,6 @@
 require_relative "./functions"
 
-def affine_cipher_controller(body)
+def affine_cipher_controller(body, response)
   # parse body
   body = JSON.parse(body)
   mode = body["mode"]

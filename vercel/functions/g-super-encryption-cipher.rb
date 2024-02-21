@@ -1,7 +1,7 @@
 require_relative "./functions"
 require_relative "./c-vigenere-extended-cipher"
 
-def super_encryption_cipher_controller(body)
+def super_encryption_cipher_controller(body, response)
     # parse body
     body = JSON.parse(body)
     mode = body["mode"]

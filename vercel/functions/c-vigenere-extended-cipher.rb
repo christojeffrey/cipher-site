@@ -1,6 +1,6 @@
 require_relative "./functions"
 
-def vigenere_extended_cipher_controller(body)
+def vigenere_extended_cipher_controller(body, response)
     # parse body
     body = JSON.parse(body)
     mode = body["mode"]
