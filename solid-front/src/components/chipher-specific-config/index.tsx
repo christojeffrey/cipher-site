@@ -48,7 +48,6 @@ export const CipherSpecificConfig: Component = () => {
 
   const [configComponent, setConfigComponent] = createSignal<Component | undefined>(undefined);
   createEffect(() => {
-    console.log(config().cipher);
     let temp = configList.find((c) => c.name === config().cipher)?.component;
     setConfigComponent((_prev: Component | undefined) => temp);
   });

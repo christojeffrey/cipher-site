@@ -1,8 +1,11 @@
 import { createSignal, createResource } from "solid-js";
 
 // input state
-type InputType = string;
-export const inputSignal = createSignal<InputType>("");
+type InputType = {
+  content: string;
+  filename?: string;
+};
+export const inputSignal = createSignal<InputType>({content: ""});
 
 // config state
 type ConfigType = {
@@ -33,7 +36,7 @@ const doEncryptDecrypt = async () => {
   const [config] = configSignal;
   let result = await fetch(`${import.meta.env.VITE_BACKEND_URL}/cipher/${config().cipher}`, {
     method: "POST",
-    body: JSON.stringify({ text: input(), ...config() }),
+    body: JSON.stringify({ text: input().content, ...config() }),
   });
 
   return result.json();

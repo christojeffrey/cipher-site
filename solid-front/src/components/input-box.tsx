@@ -11,7 +11,7 @@ export const InputBox: Component = () => {
   return (
     <div class="min-h-[25vh] md:h-full md:w-1/3 rounded-2xl bg-white p-3">
        <Heading>Input</Heading>
-      <div class="flex">
+      <div class="flex mt-2">
         {/* select radio box input type. text, text file, binary file */}
         <For each={["text", "file"]}>
           {(inputTypeValue) => () =>
@@ -23,11 +23,11 @@ export const InputBox: Component = () => {
                   name="input-type"
                   onClick={() => {
                     setInputType(inputTypeValue);
-                    setInput("");
+                    setInput({content: ""});
                   }}
                   checked={inputType() === inputTypeValue}
                 />
-                <label for={inputTypeValue}> {` ${inputTypeValue}`}</label>
+                <label for={inputTypeValue}> {` ${inputTypeValue.charAt(0).toUpperCase() + inputTypeValue.slice(1)}`}</label>
               </div>
             )}
         </For>
@@ -37,16 +37,19 @@ export const InputBox: Component = () => {
         <Match when={inputType() === "text"}>
           <TextField
             onChange={(e) => {
-              setInput((e.target as HTMLInputElement).value);
+              setInput({content: (e.target as HTMLInputElement).value});
               
             }}
           >
-            text input
+            Text Input
           </TextField>
         </Match>
         <Match when={inputType() === "file"}>
-          file
+          <label class="block my-2 font-medium text-gray-900 dark:text-white">
+            File Input
+          </label>
           <input
+            class="mt-2"
             type="file"
             onChange={(e) => {
               const file = e.target.files?.[0];
@@ -58,32 +61,41 @@ export const InputBox: Component = () => {
 
                   // stringify regularArr
                   const stringified = regularArr.map((v) => String.fromCharCode(v)).join("");
-                  setInput(stringified);
+                  setInput({content: stringified, filename: file.name});
                 };
                 reader.readAsArrayBuffer(file);
               }
             }}
           />
-          <div>file:</div>
-          <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{input()}</div>
+
+          {input().content && (
+            <div class="mt-4 mb-1">
+              <p>File content:</p>
+              <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{input().content}</div>
+            </div>
+          )}
         </Match>
       </Switch>
+      
       {/* show as base64 */}
-      <input
-        type="checkbox"
-        onChange={(e) => {
-          setShowBase64(e.target.checked);
-        }}
-        name="base64"
-      />
-      <label for="base64" class="cursor-pointer ml-2">
-        base64
-      </label>
-      {showBase64() && (
-        <>
-          <div>base64:</div>
-          <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{btoa(input())}</div>
-        </>
+      <div class="mt-6">
+        <label for="base64" class="cursor-pointer mr-4">
+          Show base64
+        </label>
+        <input
+          type="checkbox"
+          onChange={(e) => {
+            setShowBase64(e.target.checked);
+          }}
+          name="base64"
+        />
+      </div>
+      
+      {input().content && showBase64() && (
+        <div class="mt-4 mb-1">
+          <p>base64:</p>
+          <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{btoa(input().content)}</div>
+        </div>
       )}
     </div>
   );

@@ -10,13 +10,18 @@ def hill_cipher_controller(body)
   matrix_size = body["matrixSize"] || 3
   is_base64 = body["isBase64"] || false
 
+  matrix_size = Integer(matrix_size)
+
   # handle error
   if text.nil? || key.nil? || mode.nil?
     response.status = 400
     return { error: "text and key and mode are required" }
   end
 
-  matrix_size = Integer(matrix_size)
+  if key.length != matrix_size * matrix_size
+    response.status = 400
+    return { error: "key length is not appropriate" }
+  end
 
   key_array = []
   key.chars.each_slice(matrix_size) { |slice|
@@ -24,11 +29,6 @@ def hill_cipher_controller(body)
     key_array << slice
   }
   key = Matrix.rows(key_array)
-
-  if !key.square?
-    response.status = 400
-    return { error: "key length is not appropriate" }
-  end
 
   if !is_invertible?(key)   # Based on modulo 26
     response.status = 400

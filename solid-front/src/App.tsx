@@ -20,13 +20,16 @@ function AppHeader() {
   return (
     <div class="flex justify-between">
       <div>
-        <div class="text-xl">Cipher Site</div>
-        <div class="text-md">lorem ipsum</div>
+        <p class="text-xl">Cipher Site</p>
+        <p class="text-md">Lorem Ipsum is our motto</p>
       </div>
       <div class="text-right text-sm">
-        {/* TODO: change this to github link */}
-        <div>@christojeffrey</div>
-        <div>@weslygio</div>
+        <div>
+          <a href="https://github.com/christojeffrey">@christojeffrey</a>
+        </div>
+        <div>
+          <a href="https://github.com/weslygio">@weslygio</a>
+        </div>
       </div>
     </div>
   );
