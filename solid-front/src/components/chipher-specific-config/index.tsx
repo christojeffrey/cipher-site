@@ -8,6 +8,7 @@ import AffineConfig from "./e-affine";
 import HillConfig from "./f-hill";
 import SuperEncryptionConfig from "./g-super-encryption";
 import EnigmaConfig from "./bonus-enigma";
+import SuperEncryptionConfig from "./g-super-encryption";
 
 const configList = [
   {
@@ -42,6 +43,9 @@ const configList = [
     name: "enigma",
     component: EnigmaConfig,
   }
+    name: "super-encryption",
+    component: SuperEncryptionConfig,
+  },
 ];
 export const CipherSpecificConfig: Component = () => {
   const [config] = configSignal;
