@@ -7,7 +7,7 @@ export const InputBox: Component = () => {
 
   const [inputType, setInputType] = createSignal("text");
   return (
-    <div class="w-1/3 bg-white rounded-2xl p-2">
+    <div class="min-h-[25vh] md:h-full md:w-1/3 rounded-2xl bg-white p-3">
        <Heading>Input</Heading>
       <div class="flex">
         {/* select radio box input type. text, text file, binary file */}
@@ -61,7 +61,8 @@ export const InputBox: Component = () => {
               }
             }}
           />
-          <div class="h-[50vh] border-2 break-words overflow-clip">file: {input()}</div>
+          <div>file:</div>
+          <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{input()}</div>
         </Match>
       </Switch>
       {/* show as base64 */}
