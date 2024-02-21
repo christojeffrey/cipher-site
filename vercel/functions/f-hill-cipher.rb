@@ -7,7 +7,7 @@ def hill_cipher_controller(body)
   mode = body["mode"]
   text = body["text"]
   key = body["key"]
-  matrix_size = Integer(body["matrixSize"]) || 3
+  matrix_size = body["matrixSize"] || 3
   is_base64 = body["isBase64"] || false
 
   # handle error
@@ -15,6 +15,8 @@ def hill_cipher_controller(body)
     response.status = 400
     return { error: "text and key and mode are required" }
   end
+
+  matrix_size = Integer(matrix_size)
 
   key_array = []
   key.chars.each_slice(matrix_size) { |slice|
