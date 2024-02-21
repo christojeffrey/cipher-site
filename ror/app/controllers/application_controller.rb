@@ -6,6 +6,7 @@ require_relative './../../../vercel/functions/c-vigenere-extended-cipher'
 require_relative './../../../vercel/functions/d-playfair-cipher'
 require_relative './../../../vercel/functions/e-affine-cipher'
 require_relative './../../../vercel/functions/f-hill-cipher'
+require_relative './../../../vercel/functions/g-super-encryption-cipher'
 require_relative './../../../vercel/functions/bonus-enigma-cipher'
 
 class ApplicationController < ActionController::API
@@ -80,6 +81,12 @@ class ApplicationController < ActionController::API
     body = request.body.read
 
     render json: enigma_cipher_controller(body)
+  end
+  def super_encryption_cipher
+    # get body
+    body = request.body.read
+
+    render json: super_encryption_cipher_controller(body)
   end
 
 end

@@ -15,12 +15,8 @@ def vigenere_extended_cipher_controller(body)
     end
 
     # main action
-    puts "text length: #{text.length}"
-
     result_text = vigenere_extended_cipher_main(mode, text, key)
 
-    puts "result_length: #{result_text.length}"
-    
 
     return result_outputer(result_text, isBase64)
 end
