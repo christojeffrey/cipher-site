@@ -5,6 +5,8 @@ import { Heading, TextField } from "$ui";
 export const InputBox: Component = () => {
   const [input, setInput] = inputSignal;
 
+  const [showBase64, setShowBase64] = createSignal(false);
+
   const [inputType, setInputType] = createSignal("text");
   return (
     <div class="min-h-[25vh] md:h-full md:w-1/3 rounded-2xl bg-white p-3">
@@ -36,6 +38,7 @@ export const InputBox: Component = () => {
           <TextField
             onChange={(e) => {
               setInput((e.target as HTMLInputElement).value);
+              
             }}
           >
             text input
@@ -66,6 +69,22 @@ export const InputBox: Component = () => {
         </Match>
       </Switch>
       {/* show as base64 */}
+      <input
+        type="checkbox"
+        onChange={(e) => {
+          setShowBase64(e.target.checked);
+        }}
+        name="base64"
+      />
+      <label for="base64" class="cursor-pointer ml-2">
+        base64
+      </label>
+      {showBase64() && (
+        <>
+          <div>base64:</div>
+          <div class="max-h-[50vh] break-words overflow-y-auto overflow-x-hidden">{btoa(input())}</div>
+        </>
+      )}
     </div>
   );
 };
