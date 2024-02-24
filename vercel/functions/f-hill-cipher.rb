@@ -43,6 +43,7 @@ end
 
 def hill_cipher_main(mode, text, key, matrix_size)
   text = text.gsub(/[^a-zA-Z]/, "").downcase
+  key = key.gsub(/[^a-zA-Z]/, "").downcase
   # key = Matrix.rows(key)
 
   if mode == "encrypt"

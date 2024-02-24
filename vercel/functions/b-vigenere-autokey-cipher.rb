@@ -23,6 +23,7 @@ end
 def vigenere_autokey_cipher_main(mode, text, key)
     # clean the text. remove any non-letter characters. will lowercase the text
     text = text.gsub(/[^a-zA-Z]/, "").downcase
+    key = key.gsub(/[^a-zA-Z]/, "").downcase
     # text limitations: only 26 letters. will remove any non-letter characters
     # will return string.
     if mode == "encrypt"

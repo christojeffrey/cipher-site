@@ -22,6 +22,7 @@ end
 
 def playfair_cipher_main(mode, text, key)
   text = text.gsub(/[^a-zA-Z]/, "").downcase
+  key = key.gsub(/[^a-zA-Z]/, "").downcase
 
   if mode == "encrypt"
     return playfair_cipher_encrypt(text, key)

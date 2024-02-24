@@ -28,6 +28,7 @@ end
 
 def affine_cipher_main(mode, text, key_m, key_b)
   text = text.gsub(/[^a-zA-Z]/, "").downcase
+  key = key.gsub(/[^a-zA-Z]/, "").downcase
   if mode == "encrypt"
     return affine_cipher_encrypt(text, key_m, key_b)
   elsif mode == "decrypt"

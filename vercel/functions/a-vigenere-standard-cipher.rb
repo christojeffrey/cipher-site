@@ -23,6 +23,7 @@ end
 def vigenere_standard_cipher_main(mode, text, key)
     # clean the text. remove any non-letter characters. will lowercase the text
     text = text.gsub(/[^a-zA-Z]/, "").downcase
+    key = key.gsub(/[^a-zA-Z]/, "").downcase
     # text limitations: only 26 letters. will remove any non-letter characters
     # will return string.
     if mode == "encrypt"
@@ -46,6 +47,8 @@ def vigenere_standard_cipher_decrypt(ciphertext, key)
         # subtract the ciphertext character code from the key character code
         new_char_code = ciphertext_char_code - key_char_code
         # if the new character code is less than 0, add 26 to the new character code
+        puts new_char_code
+
         if new_char_code < 0
             new_char_code += 26
         end
