@@ -19,6 +19,9 @@ have I tried other free hosting platform? no.
 to run locally, run `rails s` in the ror directolry (stands for ruby on rails)
 
 (install using bundler, `bundle install`. from the directory with the `Gemfile`. its like npm install with `package.json`)
+]
+
+to run the front end, go to solid front and run `npm install` then `npm run dev`
 
 # adding endpoint
 
